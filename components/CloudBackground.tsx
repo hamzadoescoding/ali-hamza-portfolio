@@ -30,7 +30,6 @@ export default function CloudBackground() {
           src="/images/clouds.png"
           alt="Grayscale cloudscape back"
           fill
-          priority
           sizes="100vw"
           className="object-cover grayscale contrast-75 brightness-[0.8] blur-[4px]"
         />

@@ -36,7 +36,6 @@ export default function Hero({ onCtaClick }: HeroProps) {
   const socialLinks = [
     { platform: "LinkedIn", url: "https://www.linkedin.com/in/ali-hamza-6a9241225/" },
     { platform: "GitHub", url: "https://github.com/hamzadoescoding" },
-    { platform: "Behance", url: "#" },
   ];
 
   return (
@@ -57,7 +56,7 @@ export default function Hero({ onCtaClick }: HeroProps) {
       {/* 2. Overlapping Portrait (Centered) */}
       <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-10">
         <motion.div
-          initial={{ opacity: 0, y: 50, scale: 0.95 }}
+          initial={{ opacity: 1, y: 50, scale: 0.95 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 1.6, ease: [0.76, 0, 0.24, 1], delay: 0.4 }}
           className="relative w-[65%] sm:w-[45%] md:w-[32%] lg:w-[28%] aspect-[2/3] mt-[-6vh] pointer-events-auto"

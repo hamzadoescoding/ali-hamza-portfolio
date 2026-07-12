@@ -107,7 +107,7 @@ export default function SocialPill({ platform, url }: SocialPillProps) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full border border-brand-light-gray bg-brand-white text-brand-charcoal text-[11px] font-medium uppercase tracking-wider transition-all duration-300 hover:bg-brand-black hover:text-brand-white hover:border-brand-black shadow-[0_2px_5px_rgba(0,0,0,0.02)] focus-ring"
+      className="inline-flex items-center gap-2.5 px-4 py-3 sm:py-2 rounded-full border border-brand-light-gray bg-brand-white text-brand-charcoal text-[11px] font-medium uppercase tracking-wider transition-all duration-300 hover:bg-brand-black hover:text-brand-white hover:border-brand-black shadow-[0_2px_5px_rgba(0,0,0,0.02)] focus-ring"
     >
       <span className="flex items-center justify-center transition-transform duration-300">
         {getIcon()}

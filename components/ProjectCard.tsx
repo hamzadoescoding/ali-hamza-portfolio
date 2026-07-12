@@ -29,6 +29,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             src={project.thumbnail}
             alt={project.title}
             fill
+            quality={65}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover transition-transform duration-700 ease-[0.25,1,0.5,1] group-hover:scale-[1.03]"
           />

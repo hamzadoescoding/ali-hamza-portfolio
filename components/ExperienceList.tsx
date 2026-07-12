@@ -38,7 +38,7 @@ export default function ExperienceList() {
               /EXPERIENCE
             </h3>
             <span className="text-xs font-semibold uppercase tracking-widest text-brand-green">
-              [9+] years of experience
+              [3+] years of experience
             </span>
           </div>
 

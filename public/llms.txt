@@ -1,0 +1,31 @@
+# Ali Hamza
+
+> Ali Hamza is a freelance full-stack developer based in Islamabad, Pakistan, specializing in Next.js/React applications, custom and headless WordPress/WooCommerce builds, and web application security. He designs and ships production e-commerce, booking, and admin-dashboard systems for small businesses, agencies, and multi-site publisher networks.
+
+Core services: Next.js & React web application development, WordPress theme/plugin engineering and headless WordPress builds, WooCommerce and B2B e-commerce development, UI/UX design and design systems, web application security audits and penetration testing, and lightweight machine learning integrations. Based in Islamabad, Pakistan; works remotely with international clients.
+
+## Case Studies
+
+- [Perfection Auto Spa](https://alihamzamughal.dev/work/perfection-auto-spa): WordPress/WooCommerce booking and detailing-service site; local search traffic +35% and booking-related admin calls -40% within two months of launch (2025).
+- [Luna Pizza Kitchen](https://alihamzamughal.dev/work/luna-pizza-kitchen): Multi-branch WordPress/Elementor restaurant ordering site with a dynamic menu system; online orders +25% with a 1.2s page load time (2025).
+- [Habibi's Carbon](https://alihamzamughal.dev/work/habibis-carbon): Shopify (Horizon theme) storefront for a carbon-fiber auto parts brand; built a GitHub-to-draft-theme deploy pipeline and ran a full SEO/UX audit for a store with 500+ customers and 5,000+ products (2026, ongoing).
+- [Medimil](https://alihamzamughal.dev/work/medimil): Headless Next.js 16 + TypeScript rebuild of a medical/lab equipment marketplace on top of an existing WooCommerce REST API, including a role-based admin dashboard and customer account portal (2026, ongoing).
+- [Pinion Newswire](https://alihamzamughal.dev/work/pinion-newswire): Modular WordPress parent theme and HMAC-authenticated syndication engine distributing press releases across a 330-site publisher network reaching outlets including Nasdaq, MarketWatch, Bloomberg Terminal, and Benzinga (2026, ongoing).
+- [The Brainiacs School](https://alihamzamughal.dev/work/brainiacs-school): WordPress website for a Montessori and school institution covering curriculum information and online admissions (2026).
+
+## Services
+
+- [Web Design & Development](https://alihamzamughal.dev/#services): Custom Next.js/React applications, WooCommerce and B2B e-commerce, custom WordPress theme and plugin engineering, performance auditing.
+- [UI/UX Design](https://alihamzamughal.dev/#services): Wireframing, prototyping, design systems, and responsive interface design for dashboards and SaaS products.
+- [Cybersecurity Services](https://alihamzamughal.dev/#services): Penetration testing, vulnerability assessment, secure coding audits, and network/firewall security.
+- [Machine Learning & Algorithms](https://alihamzamughal.dev/#services): Supervised/unsupervised model training, data analysis, and lightweight Python ML deployments.
+
+## Profiles
+
+- [GitHub](https://github.com/hamzadoescoding)
+- [LinkedIn](https://www.linkedin.com/in/ali-hamza-6a9241225/)
+
+## Optional
+
+- [Resume (PDF)](https://alihamzamughal.dev/Ali_Hamza_Resume.pdf)
+- [All Work](https://alihamzamughal.dev/work)

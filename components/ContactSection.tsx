@@ -85,7 +85,7 @@ export default function ContactSection({ onContactClick }: ContactSectionProps) 
               />
             </div>
             <span className="text-[11px] font-bold uppercase tracking-wider text-brand-black">
-              Ali Hamza &copy; 2025
+              Ali Hamza &copy; {new Date().getFullYear()}
             </span>
           </div>
 
@@ -97,7 +97,7 @@ export default function ContactSection({ onContactClick }: ContactSectionProps) 
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 border border-brand-light-gray bg-brand-white hover:bg-brand-black hover:text-brand-white text-brand-charcoal transition-all duration-300 text-[10px] uppercase font-bold tracking-wider rounded-full shadow-[0_2px_5px_rgba(0,0,0,0.01)] focus-ring"
+                className="inline-flex items-center gap-1.5 px-3.5 py-3 sm:py-2 border border-brand-light-gray bg-brand-white hover:bg-brand-black hover:text-brand-white text-brand-charcoal transition-all duration-300 text-[10px] uppercase font-bold tracking-wider rounded-full shadow-[0_2px_5px_rgba(0,0,0,0.01)] focus-ring"
               >
                 <span>{social.icon}</span>
                 <span>{social.platform}</span>

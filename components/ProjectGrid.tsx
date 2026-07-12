@@ -60,7 +60,7 @@ export default function ProjectGrid() {
               <button
                 key={tab.value}
                 onClick={() => setFilter(tab.value as "all" | "real" | "exploration")}
-                className={`px-4.5 py-2 border text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 cursor-pointer focus-ring ${
+                className={`px-4.5 py-3 sm:py-2 border text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 cursor-pointer focus-ring ${
                   filter === tab.value
                     ? "bg-brand-black text-brand-white border-brand-black"
                     : "bg-brand-white text-brand-charcoal border-brand-light-gray hover:bg-brand-light-gray/20"
@@ -75,7 +75,7 @@ export default function ProjectGrid() {
           <Magnetic>
             <Link
               href="/work"
-              className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-brand-charcoal hover:text-brand-black transition-colors focus-ring"
+              className="inline-flex items-center gap-1.5 py-3 sm:py-1 text-xs font-semibold uppercase tracking-widest text-brand-charcoal hover:text-brand-black transition-colors focus-ring"
             >
               <span>View All Work</span>
               <ArrowRight size={13} />

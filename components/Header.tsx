@@ -128,7 +128,7 @@ export default function Header({ onContactClick }: HeaderProps) {
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-label="Toggle navigation menu"
-              className="p-2.5 rounded-full border border-brand-light-gray bg-brand-white text-brand-charcoal hover:bg-brand-light-gray/30 transition-colors md:hidden cursor-pointer focus-ring"
+              className="p-3.5 rounded-full border border-brand-light-gray bg-brand-white text-brand-charcoal hover:bg-brand-light-gray/30 transition-colors md:hidden cursor-pointer focus-ring"
             >
               {isMobileMenuOpen ? <X size={16} /> : <Menu size={16} />}
             </button>
@@ -188,7 +188,7 @@ export default function Header({ onContactClick }: HeaderProps) {
                 Let&apos;s Talk
               </button>
               <div className="text-center text-[10px] text-brand-med-gray uppercase tracking-widest">
-                Ali Hamza &copy; 2025. All Rights Reserved.
+                Ali Hamza &copy; {new Date().getFullYear()}. All Rights Reserved.
               </div>
             </motion.div>
           </motion.div>

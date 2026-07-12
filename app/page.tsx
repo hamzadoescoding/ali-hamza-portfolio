@@ -29,7 +29,7 @@ export default function Home() {
 
         {/* Floating Panel Canvas */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.985 }}
+          initial={{ opacity: 1, scale: 0.985 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
           className="relative w-full min-h-[90vh] bg-brand-bg border-y border-brand-light-gray/65 shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col"
