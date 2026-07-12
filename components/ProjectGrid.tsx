@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
@@ -72,15 +73,13 @@ export default function ProjectGrid() {
 
           {/* Right Action */}
           <Magnetic>
-            <a 
-              href="https://github.com/alihamzamughalse"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/work"
               className="inline-flex items-center gap-1.5 text-xs font-semibold uppercase tracking-widest text-brand-charcoal hover:text-brand-black transition-colors focus-ring"
             >
               <span>View All Work</span>
               <ArrowRight size={13} />
-            </a>
+            </Link>
           </Magnetic>
         </div>
 
