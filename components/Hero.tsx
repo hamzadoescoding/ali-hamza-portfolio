@@ -35,8 +35,7 @@ export default function Hero({ onCtaClick }: HeroProps) {
 
   const socialLinks = [
     { platform: "LinkedIn", url: "https://www.linkedin.com/in/ali-hamza-6a9241225/" },
-    { platform: "GitHub", url: "https://github.com/alihamzamughalse" },
-    { platform: "Dribbble", url: "#" },
+    { platform: "GitHub", url: "https://github.com/hamzadoescoding" },
     { platform: "Behance", url: "#" },
   ];
 

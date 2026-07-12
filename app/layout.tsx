@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Ali Hamza — Software Engineer & Web Developer",
   description: "Motivated and detail-oriented Software Engineering professional with hands-on experience in full-stack web development, WooCommerce, and Cybersecurity threat prevention. Designing secure, scalable, and conversion-focused digital products.",
   keywords: ["Ali Hamza", "Software Engineer", "Web Developer", "Cybersecurity", "Next.js", "React", "WordPress Developer", "Islamabad", "Pakistan Portfolio"],
-  authors: [{ name: "Ali Hamza", url: "https://github.com/alihamzamughalse" }],
+  authors: [{ name: "Ali Hamza", url: "https://github.com/hamzadoescoding" }],
   creator: "Ali Hamza",
   metadataBase: new URL("https://alihamzamughal.dev"),
   alternates: {
