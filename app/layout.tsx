@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   keywords: ["Ali Hamza", "Software Engineer", "Web Developer", "Cybersecurity", "Next.js", "React", "WordPress Developer", "Islamabad", "Pakistan Portfolio"],
   authors: [{ name: "Ali Hamza", url: "https://github.com/alihamzamughalse" }],
   creator: "Ali Hamza",
-  metadataBase: new URL("https://alihamza.dev"),
+  metadataBase: new URL("https://alihamzamughal.dev"),
   alternates: {
     canonical: "/",
   },
