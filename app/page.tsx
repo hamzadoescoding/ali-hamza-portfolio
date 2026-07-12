@@ -25,14 +25,14 @@ export default function Home() {
       <CustomCursor />
 
       {/* Main floating website panel structure */}
-      <div className="relative w-full flex flex-col justify-start min-h-screen py-6 md:py-12 px-4 sm:px-6 md:px-8">
-        
+      <div className="relative w-full flex flex-col justify-start min-h-screen py-6 md:py-12">
+
         {/* Floating Panel Canvas */}
         <motion.div
           initial={{ opacity: 0, scale: 0.985 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: [0.76, 0, 0.24, 1] }}
-          className="relative w-full max-w-[1400px] min-h-[90vh] mx-auto bg-brand-bg border border-brand-light-gray/65 shadow-[0_20px_50px_rgba(0,0,0,0.08)] rounded-lg overflow-hidden flex flex-col"
+          className="relative w-full min-h-[90vh] bg-brand-bg border-y border-brand-light-gray/65 shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col"
         >
           {/* Transparent Header */}
           <Header onContactClick={() => setIsContactOpen(true)} />

@@ -60,14 +60,14 @@ export default function ProjectDetail() {
       <CustomCursor />
 
       {/* Floating Website Panel Container */}
-      <div className="relative w-full flex flex-col justify-start min-h-screen py-6 md:py-12 px-4 sm:px-6 md:px-8">
-        
+      <div className="relative w-full flex flex-col justify-start min-h-screen py-6 md:py-12">
+
         {/* Floating Panel Canvas */}
         <motion.div
           initial={{ opacity: 0, scale: 0.985 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, ease: [0.76, 0, 0.24, 1] }}
-          className="relative w-full max-w-[1400px] mx-auto bg-brand-bg border border-brand-light-gray/65 shadow-[0_20px_50px_rgba(0,0,0,0.08)] rounded-lg overflow-hidden flex flex-col z-10"
+          className="relative w-full bg-brand-bg border-y border-brand-light-gray/65 shadow-[0_20px_50px_rgba(0,0,0,0.08)] overflow-hidden flex flex-col z-10"
         >
           {/* Custom Details Page Header */}
           <header className="sticky top-0 z-40 w-full bg-brand-bg/85 backdrop-blur-md border-b border-brand-light-gray/70 py-4.5 px-6 md:px-12 flex items-center justify-between">
