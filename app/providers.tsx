@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useEffect, useRef, useState } from "react";
+import React, { createContext, useContext, useEffect, useState } from "react";
 import Lenis from "lenis";
 
 const LenisContext = createContext<Lenis | null>(null);
@@ -19,6 +19,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
       infinite: false,
     });
 
+    // Lenis must be constructed client-side after mount; consumers (useLenis)
+    // need the instance in state to re-render once it's ready.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLenisInstance(lenis);
 
     let rafId = 0;

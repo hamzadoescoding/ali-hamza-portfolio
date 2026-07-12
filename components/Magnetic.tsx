@@ -4,7 +4,7 @@ import React, { useRef, useState } from "react";
 import { motion } from "framer-motion";
 
 interface MagneticProps {
-  children: React.ReactElement<any>;
+  children: React.ReactElement<{ className?: string }>;
   range?: number;
 }
 

@@ -9,7 +9,7 @@ export default function ExperienceList() {
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e: React.MouseEvent, idx: number) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
     const rect = e.currentTarget.getBoundingClientRect();
     // Get mouse position relative to the row container
     setMousePos({
@@ -53,7 +53,7 @@ export default function ExperienceList() {
                   key={idx}
                   onMouseEnter={() => setHoveredIdx(idx)}
                   onMouseLeave={() => setHoveredIdx(null)}
-                  onMouseMove={(e) => handleMouseMove(e, idx)}
+                  onMouseMove={handleMouseMove}
                   className={`relative grid grid-cols-1 md:grid-cols-12 items-center py-8 md:py-10 border-b border-brand-light-gray/10 last:border-b-0 cursor-default transition-opacity duration-300 ${
                     isAnyHovered && !isHovered ? "opacity-35" : "opacity-100"
                   }`}

@@ -58,7 +58,7 @@ export default function ProjectGrid() {
             {categories.map((tab) => (
               <button
                 key={tab.value}
-                onClick={() => setFilter(tab.value as any)}
+                onClick={() => setFilter(tab.value as "all" | "real" | "exploration")}
                 className={`px-4.5 py-2 border text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 cursor-pointer focus-ring ${
                   filter === tab.value
                     ? "bg-brand-black text-brand-white border-brand-black"

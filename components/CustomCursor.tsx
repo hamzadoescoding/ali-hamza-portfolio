@@ -22,6 +22,9 @@ export default function CustomCursor() {
       return;
     }
 
+    // Visibility depends on matchMedia, which is unavailable during SSR —
+    // setting it post-mount avoids a hydration mismatch.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsVisible(true);
     document.body.classList.add("custom-cursor-active");
 

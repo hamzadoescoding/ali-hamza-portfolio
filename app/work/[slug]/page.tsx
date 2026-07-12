@@ -3,8 +3,8 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter, useParams } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, ArrowRight, Home } from "lucide-react";
+import { useParams } from "next/navigation";
+import { ArrowLeft, ArrowUpRight, Home } from "lucide-react";
 import { motion } from "framer-motion";
 import { projects } from "@/data/projects";
 import CloudBackground from "@/components/CloudBackground";
@@ -14,7 +14,6 @@ import Magnetic from "@/components/Magnetic";
 import ContactModal from "@/components/ContactModal";
 
 export default function ProjectDetail() {
-  const router = useRouter();
   const params = useParams();
   const slug = params.slug as string;
   const [isContactOpen, setIsContactOpen] = React.useState(false);

@@ -13,7 +13,6 @@ interface HeroProps {
 
 export default function Hero({ onCtaClick }: HeroProps) {
   const shouldReduceMotion = useReducedMotion();
-  const [isLoaded, setIsLoaded] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [isEntranceDone, setIsEntranceDone] = useState(false);
@@ -27,7 +26,6 @@ export default function Hero({ onCtaClick }: HeroProps) {
   };
 
   useEffect(() => {
-    setIsLoaded(true);
     // Lock float animations until initial rise has fully completed (1.6s duration + 0.2s start delay)
     const timer = setTimeout(() => {
       setIsEntranceDone(true);
