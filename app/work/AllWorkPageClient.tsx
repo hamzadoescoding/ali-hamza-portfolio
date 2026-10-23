@@ -25,7 +25,6 @@ export default function AllWorkPageClient() {
 
       {/* Floating Website Panel Container */}
       <div className="relative w-full flex flex-col justify-start min-h-screen py-6 md:py-12">
-
         {/* Floating Panel Canvas */}
         <motion.div
           initial={{ opacity: 1, scale: 0.985 }}
@@ -49,7 +48,6 @@ export default function AllWorkPageClient() {
 
           {/* Content */}
           <main className="flex-1 flex flex-col select-none">
-
             {/* Title Block */}
             <section className="pt-16 pb-12 px-6 md:px-12 text-left">
               <motion.span
@@ -58,7 +56,7 @@ export default function AllWorkPageClient() {
                 transition={{ duration: 0.6 }}
                 className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-brand-muted"
               >
-                // Full Portfolio
+                // Founder’s Earlier Engineering Work
               </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 25 }}
@@ -66,7 +64,7 @@ export default function AllWorkPageClient() {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-brand-black mt-2 leading-[0.95]"
               >
-                All Work
+                Engineering Archive
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
@@ -74,7 +72,7 @@ export default function AllWorkPageClient() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-sm md:text-base text-brand-muted mt-3 uppercase tracking-wider font-semibold"
               >
-                {projects.length} Projects — Real Work &amp; Explorations
+                {projects.length} web projects — the foundation behind Ali Hamza AI
               </motion.p>
             </section>
 
@@ -114,7 +112,7 @@ export default function AllWorkPageClient() {
                 Ready to launch your vision?
               </h3>
               <p className="text-xs md:text-sm text-brand-charcoal max-w-sm">
-                Get in touch with Ali Hamza to schedule an initial discovery call.
+                Get in touch with Ali Hamza AI to explore your next product or workflow.
               </p>
               <Magnetic>
                 <button
@@ -125,7 +123,6 @@ export default function AllWorkPageClient() {
                 </button>
               </Magnetic>
             </section>
-
           </main>
         </motion.div>
       </div>
