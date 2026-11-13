@@ -1,26 +1,22 @@
-# Ali Hamza AI
+# Ali Hamza Studio
 
-> Ali Hamza AI is an independent AI startup founded by software engineer Ali Hamza in Islamabad, Pakistan. It builds practical conversational assistants and tools that connect conversations to useful actions.
+> Ali Hamza Studio is run by Ali Hamza, a full-stack web and app developer based in Islamabad, Pakistan, working with small businesses in the US and worldwide. He builds business websites, booking and ordering apps, custom CRMs and admin dashboards, and e-commerce stores. Projects start at $500 with a fixed written quote.
 
-## AI Tools
+## Services
 
-- [Budget Auto Fix AI Assistant](https://github.com/hamzadoescoding/budget-autofix-ai-assistant): Original public prototype of an automotive service advisor and reservation assistant. Uses Google Gemini, tool calling, Next.js, TypeScript, and streaming UI. Features service discovery, appointment-slot selection, vehicle and customer data collection, and reservation cards. The public implementation uses sample service data and in-memory reservations; it is not evidence of a production booking deployment.
-- [Agent-Reach fork](https://github.com/hamzadoescoding/Agent-Reach): An open-source exploration. This repository is a fork of [Panniantong/Agent-Reach](https://github.com/Panniantong/Agent-Reach), not an original product created by Ali Hamza AI.
+- [Business websites](https://alihamzamughal.dev/#services): Mobile-first sites with local SEO, built on WordPress or Next.js.
+- [Booking & ordering apps](https://alihamzamughal.dev/#services): Appointment booking, restaurant ordering, meal-prep subscriptions, reminders.
+- [CRMs & admin dashboards](https://alihamzamughal.dev/#services): Customer, quote, and order records, staff roles, notifications, customer portals.
+- [E-commerce stores](https://alihamzamughal.dev/#services): Shopify and WooCommerce development and audits.
+- [Pricing](https://alihamzamughal.dev/#pricing): Websites from $500; apps and CRMs quoted per project.
 
-## Capabilities
+## Work
 
-- [Conversational assistants](https://alihamzamughal.dev/#capabilities): Grounded business answers, service discovery, streaming conversations, and rich responses.
-- [AI workflows](https://alihamzamughal.dev/#capabilities): Tool calling, structured data collection, and appointment workflows.
-- [Product integration](https://alihamzamughal.dev/#capabilities): React interfaces, Next.js APIs, provider integrations, and business-system connections.
-- [Approach](https://alihamzamughal.dev/#approach): Understand the problem, build a focused prototype, and refine the complete journey.
-
-## Founder and Engineering Archive
-
-- [About the founder](https://alihamzamughal.dev/#about): Ali Hamza, software engineer based in Islamabad.
-- [Engineering archive](https://alihamzamughal.dev/work): Earlier web engineering work including Medimil, Pinion Newswire, Perfection Auto Spa, Luna Pizza Kitchen, Habibi's Carbon, and The Brainiacs School. These are web engineering projects, not presented as AI startup products.
+- [All projects](https://alihamzamughal.dev/work): Perfection Auto Spa, Luna Pizza Kitchen, Medimil, Habibi's Carbon, Pinion Newswire, The Brainiacs School.
+- [Budget Auto Fix AI Assistant](https://github.com/hamzadoescoding/budget-autofix-ai-assistant): Public prototype of an automotive booking assistant using sample data.
 
 ## Contact
 
-- Email: ah8354056@gmail.com
+- Email: info@alihamzamughal.dev
 - [GitHub](https://github.com/hamzadoescoding)
 - [LinkedIn](https://www.linkedin.com/in/ali-hamza-6a9241225/)

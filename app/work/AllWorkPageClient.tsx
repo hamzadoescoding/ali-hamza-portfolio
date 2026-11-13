@@ -64,7 +64,7 @@ export default function AllWorkPageClient() {
                 transition={{ duration: 0.8, delay: 0.1 }}
                 className="text-4xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-brand-black mt-2 leading-[0.95]"
               >
-                Engineering Archive
+                Selected Work
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 15 }}
@@ -72,7 +72,7 @@ export default function AllWorkPageClient() {
                 transition={{ duration: 0.6, delay: 0.2 }}
                 className="text-sm md:text-base text-brand-muted mt-3 uppercase tracking-wider font-semibold"
               >
-                {projects.length} web projects — the foundation behind Ali Hamza AI
+                {projects.length} projects for real businesses
               </motion.p>
             </section>
 
@@ -112,7 +112,7 @@ export default function AllWorkPageClient() {
                 Ready to launch your vision?
               </h3>
               <p className="text-xs md:text-sm text-brand-charcoal max-w-sm">
-                Get in touch with Ali Hamza AI to explore your next product or workflow.
+                Tell me about your business and get a fixed quote for your website, app, or CRM.
               </p>
               <Magnetic>
                 <button

@@ -1,28 +1,30 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { startup } from "@/data/startup";
 
 export default function StartupHeader() {
   const [open, setOpen] = useState(false);
   const links = [
-    { href: "/#products", label: "Our tools" },
-    { href: "/#capabilities", label: "Capabilities" },
-    { href: "/#approach", label: "Approach" },
-    { href: "/#about", label: "About us" },
+    { href: "/#work", label: "Work" },
+    { href: "/#services", label: "Services" },
+    { href: "/#pricing", label: "Pricing" },
+    { href: "/#process", label: "Process" },
+    { href: "/#about", label: "About" },
   ];
 
   return (
     <header className="startup-header">
-      <a href="/" className="startup-brand" aria-label="Ali Hamza AI home">
+      <Link href="/" className="startup-brand" aria-label="Ali Hamza Studio home">
         <span className="startup-mark" aria-hidden="true">
           a<span>h</span>
         </span>
         <span>
-          Ali Hamza<span className="startup-brand-ai">AI</span>
+          Ali Hamza<span className="startup-brand-ai">STUDIO</span>
         </span>
-      </a>
+      </Link>
       <nav className="startup-desktop-nav" aria-label="Main navigation">
         {links.map((link) => (
           <a key={link.href} href={link.href}>
@@ -31,7 +33,7 @@ export default function StartupHeader() {
         ))}
       </nav>
       <a className="startup-button startup-header-cta" href={startup.inquiry}>
-        Build with us <ArrowUpRight size={16} aria-hidden="true" />
+        Start a project <ArrowUpRight size={16} aria-hidden="true" />
       </a>
       <button
         className="startup-menu-toggle"
@@ -52,7 +54,7 @@ export default function StartupHeader() {
             </a>
           ))}
           <a href={startup.inquiry} onClick={() => setOpen(false)}>
-            Build with us <ArrowUpRight size={16} aria-hidden="true" />
+            Start a project <ArrowUpRight size={16} aria-hidden="true" />
           </a>
         </nav>
       )}

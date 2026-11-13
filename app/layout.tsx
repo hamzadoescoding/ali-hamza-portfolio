@@ -8,30 +8,30 @@ import { startup } from "@/data/startup";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const description =
-  "Ali Hamza AI is an independent AI startup building conversational assistants, tool-powered workflows, and practical AI products. Explore our automotive service and reservation assistant.";
+  "Ali Hamza Studio builds websites, booking and ordering apps, and custom CRMs for small businesses in the US and worldwide. Fixed quotes, projects from $500.";
 
 export const metadata: Metadata = {
   title: {
-    default: "Ali Hamza AI — Practical AI Tools & Assistants",
-    template: "%s | Ali Hamza AI",
+    default: "Ali Hamza Studio — Websites, Apps & CRMs for Small Businesses",
+    template: "%s | Ali Hamza Studio",
   },
   description,
   keywords: [
-    "Ali Hamza AI",
-    "AI startup",
-    "AI tools",
-    "AI assistants",
-    "workflow automation",
-    "conversational AI",
-    "Gemini",
-    "Islamabad",
+    "Ali Hamza",
+    "small business web design",
+    "booking website",
+    "online ordering app",
+    "custom CRM",
+    "Next.js developer",
+    "WordPress developer",
+    "Shopify developer",
   ],
   authors: [{ name: "Ali Hamza", url: startup.github }],
   creator: startup.name,
   metadataBase: new URL("https://alihamzamughal.dev"),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Ali Hamza AI — AI that gets work done.",
+    title: "Ali Hamza Studio — More bookings. Less busywork.",
     description,
     url: "/",
     siteName: startup.name,
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ali Hamza AI — AI that gets work done.",
+    title: "Ali Hamza Studio — More bookings. Less busywork.",
     description,
   },
   robots: { index: true, follow: true },
@@ -65,7 +65,7 @@ const siteJsonLd = {
       name: "Ali Hamza",
       url: "https://alihamzamughal.dev/#about",
       image: "https://alihamzamughal.dev/portraits/ali-hamza-original.jpg",
-      jobTitle: "Founder & Software Engineer",
+      jobTitle: "Full-Stack Web & App Developer",
       worksFor: { "@id": "https://alihamzamughal.dev/#organization" },
       sameAs: [startup.github, startup.linkedin],
     },

@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Ali Hamza AI — AI that gets work done.";
+export const alt = "Ali Hamza Studio — More bookings. Less busywork.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -20,7 +20,7 @@ export default function Image() {
       }}
     >
       <div style={{ display: "flex", fontSize: 25, color: "#c5f277" }}>
-        Ali Hamza AI / Independent AI startup
+        Ali Hamza Studio / Websites, apps & CRMs
       </div>
       <div
         style={{
@@ -32,13 +32,13 @@ export default function Image() {
           letterSpacing: -5,
         }}
       >
-        <span>AI that gets</span>
-        <span style={{ color: "#c5f277" }}>work done.</span>
+        <span>More bookings.</span>
+        <span style={{ color: "#c5f277" }}>Less busywork.</span>
       </div>
       <div
         style={{ display: "flex", justifyContent: "space-between", fontSize: 22, color: "#b1c0ab" }}
       >
-        <span>Practical tools. Useful actions.</span>
+        <span>For small businesses · From $500</span>
         <span>alihamzamughal.dev</span>
       </div>
     </div>,
