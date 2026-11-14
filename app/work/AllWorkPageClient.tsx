@@ -56,7 +56,7 @@ export default function AllWorkPageClient() {
                 transition={{ duration: 0.6 }}
                 className="text-[10px] md:text-xs font-mono uppercase tracking-widest text-brand-muted"
               >
-                // Founder’s Earlier Engineering Work
+                // Selected client work
               </motion.span>
               <motion.h1
                 initial={{ opacity: 0, y: 25 }}

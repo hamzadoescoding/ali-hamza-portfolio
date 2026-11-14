@@ -1,81 +1,89 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowRight,
   ArrowUpRight,
   Check,
   CalendarDays,
   Globe,
   LayoutDashboard,
   ShoppingBag,
-  Smartphone,
   MessageSquare,
-  Users,
-  Bell,
   Plus,
+  Target,
+  FileText,
+  ShieldCheck,
+  Smartphone,
+  LifeBuoy,
 } from "lucide-react";
-import StartupHeader from "@/components/StartupHeader";
+import StudioHeader from "@/components/StudioHeader";
 import { startup } from "@/data/startup";
 import { projects } from "@/data/projects";
 
 const services = [
   {
     icon: Globe,
-    title: "Business websites",
+    title: "Business Websites",
     text: "Fast, mobile-first sites that show up on Google and turn visitors into calls, bookings, and orders.",
-    detail:
-      "Custom design, WordPress or Next.js, local SEO and schema, multi-location pages, analytics, and copy cleanup.",
   },
   {
     icon: CalendarDays,
-    title: "Booking & ordering apps",
-    text: "Let customers book appointments, order food, or request quotes online, without phone tag.",
-    detail:
-      "Online booking flows, menus and ordering, meal-prep subscriptions, reminders, and integrations with tools you already use.",
+    title: "Booking & Ordering Apps",
+    text: "Online appointments, restaurant ordering, meal-prep subscriptions, and automatic reminders.",
   },
   {
     icon: LayoutDashboard,
-    title: "CRMs & admin dashboards",
-    text: "One place for your customers, quotes, orders, and follow-ups, built around how your business works.",
-    detail:
-      "Customer records, quote and order tracking, role-based staff access, email notifications, and customer portals.",
+    title: "CRMs & Dashboards",
+    text: "One place for customers, quotes, orders, and follow-ups, with staff roles and customer portals.",
   },
   {
     icon: ShoppingBag,
-    title: "E-commerce stores",
-    text: "Shopify and WooCommerce stores that are safe to update and easy for customers to buy from.",
-    detail:
-      "Theme development, product catalogs, checkout fixes, technical SEO audits, and preview-before-live deploy workflows.",
+    title: "E-commerce Stores",
+    text: "Shopify and WooCommerce stores that are easy to buy from and safe to update.",
+  },
+  {
+    icon: MessageSquare,
+    title: "AI Assistants",
+    text: "Chat assistants that answer service questions and guide visitors toward booking.",
   },
 ];
 
 const featuredSlugs = ["perfection-auto-spa", "luna-pizza-kitchen", "medimil", "habibis-carbon"];
-const featuredStats: Record<string, string[]> = {
-  "perfection-auto-spa": ["+35% local search traffic", "40% fewer admin calls"],
-  "luna-pizza-kitchen": ["+25% online orders", "1.2s page load"],
-  medimil: ["Admin + customer dashboards", "Live shipment tracking"],
-  "habibis-carbon": ["5,000+ products shipped", "5.0-star rating"],
+const featuredStats: Record<string, string> = {
+  "perfection-auto-spa": "+35% local search traffic",
+  "luna-pizza-kitchen": "+25% online orders",
+  medimil: "Admin + customer dashboards",
+  "habibis-carbon": "5,000+ products shipped",
 };
 const featured = featuredSlugs
   .map((slug) => projects.find((project) => project.slug === slug))
   .filter((project) => project !== undefined);
 
+const reasons = [
+  { icon: Target, title: "Built to Bring Customers", text: "Every page is designed around one goal: more calls, bookings, and orders." },
+  { icon: FileText, title: "Fixed, Written Quotes", text: "You approve the scope and price before any work begins. No surprise invoices." },
+  { icon: Smartphone, title: "Mobile-First", text: "Most of your customers are on their phones. Everything is tested on real devices." },
+  { icon: ShieldCheck, title: "Security Background", text: "Cybersecurity training means your site and customer data are handled carefully." },
+  { icon: LifeBuoy, title: "Ongoing Support", text: "A walkthrough at launch, and help afterwards whenever you need it." },
+];
+
 const packages = [
   {
     name: "Website",
-    price: "From $500",
+    price: "$500",
+    prefix: "From",
     text: "A professional, mobile-friendly site for a local business.",
     items: [
-      "Up to 5 pages, designed for your brand",
+      "Up to 5 custom-designed pages",
       "Contact, booking, or ordering links",
-      "Local SEO setup and Google-ready pages",
+      "Local SEO and Google-ready setup",
       "Launch support and a walkthrough",
     ],
   },
   {
-    name: "Booking or ordering app",
-    price: "Custom quote",
-    text: "For businesses that want customers to book, order, or subscribe online.",
+    name: "Booking / Ordering App",
+    price: "Custom",
+    prefix: "Quoted",
+    text: "Let customers book, order, or subscribe online without phone tag.",
     items: [
       "Appointment, order, or subscription flows",
       "Email confirmations and reminders",
@@ -85,9 +93,10 @@ const packages = [
     highlight: true,
   },
   {
-    name: "CRM & dashboard",
-    price: "Custom quote",
-    text: "Internal tools that replace spreadsheets, sticky notes, and missed follow-ups.",
+    name: "CRM & Dashboard",
+    price: "Custom",
+    prefix: "Quoted",
+    text: "Replace spreadsheets, sticky notes, and missed follow-ups.",
     items: [
       "Customer, quote, and order records",
       "Staff roles and permissions",
@@ -97,401 +106,367 @@ const packages = [
   },
 ];
 
+const faqs = [
+  {
+    q: "How much does a website cost?",
+    a: "Business websites start at $500. Booking apps, ordering systems, and CRMs depend on what you need, so you get a fixed written quote after a short review of your business.",
+  },
+  {
+    q: "Do you work with businesses in the US?",
+    a: "Yes. I work remotely with small businesses in the US and elsewhere. We agree on a call time that suits you, and you get written progress updates throughout the project.",
+  },
+  {
+    q: "How long does a project take?",
+    a: "A standard business website usually takes a few weeks. Apps and CRMs take longer depending on scope. Your quote includes a timeline.",
+  },
+  {
+    q: "Can I update the website myself?",
+    a: "Yes. Sites are built so you can edit text, photos, menus, and hours yourself, and I walk you through it at launch.",
+  },
+  {
+    q: "What is the free website review?",
+    a: "Send me your current website and I'll reply with a short list of what may be costing you customers, such as missing information, broken links, or a slow mobile experience. No obligation.",
+  },
+];
+
+const ticker = ["Websites", "Booking Apps", "Online Ordering", "Custom CRMs", "E-commerce", "Dashboards"];
+
+function Pill({ href, children, dark = false }: { href: string; children: React.ReactNode; dark?: boolean }) {
+  return (
+    <a className={`sv-pill${dark ? " sv-pill-dark" : ""}`} href={href}>
+      {children}
+      <span className="sv-pill-icon" aria-hidden="true">
+        <ArrowUpRight size={16} />
+      </span>
+    </a>
+  );
+}
+
 export default function Home() {
   return (
-    <div className="startup-site">
-      <a className="startup-skip" href="#main">
+    <div className="sv-site">
+      <a className="sv-skip" href="#main">
         Skip to content
       </a>
-      <StartupHeader />
+      <StudioHeader />
       <main id="main">
-        <section className="startup-hero startup-container" aria-labelledby="hero-heading">
-          <div className="startup-hero-copy">
-            <div className="startup-eyebrow">
-              <span className="startup-status-dot" /> Web, app &amp; CRM studio for small businesses
-            </div>
-            <h1 id="hero-heading">
+        <section className="sv-hero" aria-labelledby="hero-heading">
+          <div className="sv-hero-glow" aria-hidden="true" />
+          <div className="sv-container sv-hero-inner">
+            <p className="sv-eyebrow">
+              <span className="sv-dot" /> Available for new projects
+            </p>
+            <h1 id="hero-heading" className="sv-display">
               More bookings.
               <br />
               <span>Less busywork.</span>
             </h1>
-            <p className="startup-hero-description">
-              I design and build websites, booking and ordering apps, and custom CRMs for clinics,
-              salons, restaurants, shops, and service businesses. Fixed quotes, clear updates, and
-              projects starting at $500.
+            <p className="sv-hero-services">
+              Websites <i>/</i> Booking apps <i>/</i> Online ordering <i>/</i> Custom CRMs <i>/</i>{" "}
+              E-commerce
             </p>
-            <div className="startup-actions">
-              <a className="startup-button" href={startup.audit}>
-                Get a free website review <ArrowRight size={18} aria-hidden="true" />
-              </a>
-              <a className="startup-text-link" href="#work">
-                See recent work <ArrowUpRight size={17} aria-hidden="true" />
-              </a>
-            </div>
-            <div className="startup-hero-note">
-              <span className="startup-small-line" /> Working with businesses in the US and
-              worldwide.
+            <div className="sv-hero-row">
+              <p>
+                I build websites, apps, and CRMs for clinics, salons, restaurants, shops, and
+                service businesses. Fixed quotes. Projects from $500.
+              </p>
+              <div className="sv-actions">
+                <Pill href={startup.audit}>Free website review</Pill>
+                <a className="sv-link" href="#work">
+                  See the work <ArrowUpRight size={16} aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
-
-          <div className="startup-system-wrap">
-            <div className="startup-orbit startup-orbit-one" aria-hidden="true" />
-            <div className="startup-orbit startup-orbit-two" aria-hidden="true" />
-            <div className="startup-system">
-              <div className="startup-system-top">
-                <span>
-                  <span className="startup-status-dot" /> WEBSITE → BOOKING → CRM
-                </span>
-                <span>Example flow</span>
-              </div>
-              <div className="startup-system-title">
-                <span className="startup-system-icon">
-                  <Smartphone size={22} aria-hidden="true" />
-                </span>
-                <div>
-                  <strong>
-                    A visitor finds you.
-                    <br />A customer stays.
-                  </strong>
-                  <span>Local service business · Typical setup</span>
-                </div>
-              </div>
-              <div className="startup-tool-flow">
-                <div>
-                  <span className="startup-tool-icon">
-                    <Globe size={14} aria-hidden="true" />
-                  </span>
-                  <span>
-                    Found on Google<small>Fast, SEO-ready website</small>
-                  </span>
-                  <span className="startup-tool-tag">01</span>
-                </div>
-                <div>
-                  <span className="startup-tool-icon">
-                    <CalendarDays size={14} aria-hidden="true" />
-                  </span>
-                  <span>
-                    Books or orders online<small>Booking &amp; ordering app</small>
-                  </span>
-                  <span className="startup-tool-tag">02</span>
-                </div>
-                <div>
-                  <span className="startup-tool-icon">
-                    <Users size={14} aria-hidden="true" />
-                  </span>
-                  <span>
-                    Saved to your CRM<small>Customer records &amp; history</small>
-                  </span>
-                  <span className="startup-tool-tag">03</span>
-                </div>
-                <div>
-                  <span className="startup-tool-icon">
-                    <Bell size={14} aria-hidden="true" />
-                  </span>
-                  <span>
-                    Reminded to come back<small>Automated follow-ups</small>
-                  </span>
-                  <span className="startup-tool-tag">04</span>
-                </div>
-              </div>
-              <div className="startup-system-bottom">
-                <span className="startup-status-dot" /> Less phone tag. More repeat customers.
-                <span aria-hidden="true">↗</span>
-              </div>
-            </div>
-            <div className="startup-floating-label">
-              <Check size={15} aria-hidden="true" /> Fixed quote before work starts
-            </div>
+          <div className="sv-hero-wordmark" aria-hidden="true">
+            ALI<span>HAMZA</span>
           </div>
         </section>
 
-        <div className="startup-stack-strip">
-          <div className="startup-container">
-            <span className="startup-kicker">BUILT WITH</span>
-            <span>Next.js</span>
-            <span>React</span>
-            <span>WordPress</span>
-            <span>WooCommerce</span>
-            <span>Shopify</span>
-            <span>Node.js</span>
+        <div className="sv-ticker" aria-hidden="true">
+          <div className="sv-ticker-track">
+            {[...ticker, ...ticker, ...ticker, ...ticker].map((item, i) => (
+              <span key={i}>
+                {item} <b>✦</b>
+              </span>
+            ))}
           </div>
         </div>
 
-        <section id="work" className="startup-section startup-container">
-          <div className="startup-section-heading">
+        <section id="about" className="sv-section sv-container sv-about">
+          <div>
+            <p className="sv-kicker">Who I am</p>
+            <h2 className="sv-h2">
+              One developer.
+              <br />
+              <span>Start to finish.</span>
+            </h2>
+          </div>
+          <div className="sv-about-body">
+            <p>
+              I&apos;m Ali Hamza, a full-stack developer with a BS in Software Engineering. You work
+              directly with me, not an account manager, from the first review to launch day.
+            </p>
+            <p>
+              I&apos;ve built booking sites, multi-branch restaurant menus, Shopify stores, a headless
+              e-commerce platform with admin and customer dashboards, and publishing systems running
+              across a 330-site network.
+            </p>
+            <div className="sv-stats">
+              <div>
+                <strong>
+                  6<em>+</em>
+                </strong>
+                <span>Client projects shipped</span>
+              </div>
+              <div>
+                <strong>
+                  330<em>+</em>
+                </strong>
+                <span>Sites in a network I help maintain</span>
+              </div>
+              <div>
+                <strong>
+                  5k<em>+</em>
+                </strong>
+                <span>Products shipped by a store I build</span>
+              </div>
+            </div>
+          </div>
+          <div className="sv-about-photo">
+            <Image
+              src="/portraits/ali-hamza-original.jpg"
+              alt="Ali Hamza, web developer"
+              width={600}
+              height={720}
+              sizes="(max-width: 760px) 90vw, 380px"
+            />
+          </div>
+        </section>
+
+        <section id="services" className="sv-section sv-container">
+          <div className="sv-heading">
             <div>
-              <p className="startup-kicker">01 / RECENT WORK</p>
-              <h2>
-                Real businesses.
+              <p className="sv-kicker">Services</p>
+              <h2 className="sv-h2">
+                Solutions built
                 <br />
-                Measurable results.
+                <span>for growth.</span>
               </h2>
             </div>
-            <p>
-              Booking sites, restaurant ordering, e-commerce,
-              <br className="startup-desktop-break" /> and custom admin platforms.
-            </p>
+            <Pill href={startup.inquiry}>Get a quote</Pill>
           </div>
-          <div className="studio-work-grid">
+          <div className="sv-services">
+            {services.map(({ icon: Icon, title, text }, i) => (
+              <article className="sv-service" key={title}>
+                <span className="sv-service-num">0{i + 1}</span>
+                <span className="sv-service-icon">
+                  <Icon size={26} strokeWidth={1.6} aria-hidden="true" />
+                </span>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section id="work" className="sv-section sv-container">
+          <div className="sv-heading">
+            <div>
+              <p className="sv-kicker">Selected work</p>
+              <h2 className="sv-h2">
+                Real businesses.
+                <br />
+                <span>Real results.</span>
+              </h2>
+            </div>
+            <Link className="sv-pill" href="/work">
+              View all projects
+              <span className="sv-pill-icon" aria-hidden="true">
+                <ArrowUpRight size={16} />
+              </span>
+            </Link>
+          </div>
+          <div className="sv-work">
             {featured.map((project) => (
-              <Link
-                className="studio-work-card"
-                href={`/work/${project.slug}`}
-                key={project.slug}
-              >
-                <div className="studio-work-image">
+              <Link className="sv-work-card" href={`/work/${project.slug}`} key={project.slug}>
+                <div className="sv-work-img">
                   <Image
                     src={project.thumbnail}
                     alt={`${project.title} website`}
-                    width={800}
-                    height={500}
-                    sizes="(max-width: 760px) 90vw, 600px"
+                    width={900}
+                    height={600}
+                    sizes="(max-width: 760px) 90vw, 620px"
                   />
+                  <span className="sv-work-stat">{featuredStats[project.slug]}</span>
                 </div>
-                <div className="studio-work-body">
-                  <span className="startup-kicker">
-                    {project.category} · {project.year}
+                <div className="sv-work-meta">
+                  <h3>{project.title}</h3>
+                  <span>
+                    {project.year} · {project.category}
                   </span>
-                  <h3>
-                    {project.title} <ArrowUpRight size={20} aria-hidden="true" />
-                  </h3>
-                  <p>{project.summary}</p>
-                  <ul className="studio-work-stats">
-                    {(featuredStats[project.slug] ?? []).map((stat) => (
-                      <li key={stat}>{stat}</li>
-                    ))}
-                  </ul>
                 </div>
               </Link>
             ))}
           </div>
-          <Link className="startup-text-link studio-work-all" href="/work">
-            View all {projects.length} projects <ArrowUpRight size={17} aria-hidden="true" />
-          </Link>
         </section>
 
-        <section id="services" className="startup-capabilities">
-          <div className="startup-container startup-section">
-            <div className="startup-section-heading">
-              <div>
-                <p className="startup-kicker">02 / SERVICES</p>
-                <h2>
-                  Everything online.
-                  <br />
-                  Built to work together.
-                </h2>
-              </div>
-              <p>
-                Start with a website, then add booking,
-                <br className="startup-desktop-break" /> ordering, or a CRM as you grow.
-              </p>
-            </div>
-            <div className="startup-capability-grid">
-              {services.map(({ icon: Icon, title, text, detail }, index) => (
-                <article className="startup-capability" key={title}>
-                  <div className="startup-capability-top">
-                    <Icon size={25} strokeWidth={1.5} aria-hidden="true" />
-                    <span>0{index + 1}</span>
-                  </div>
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                  <details>
-                    <summary>
-                      What this includes <Plus size={16} aria-hidden="true" />
-                    </summary>
-                    <p>{detail}</p>
-                  </details>
-                </article>
-              ))}
-            </div>
-            <div className="studio-ai-note">
-              <MessageSquare size={20} aria-hidden="true" />
-              <p>
-                <strong>Also available: AI assistants.</strong> Add a chat assistant that answers
-                service questions and guides visitors to book.{" "}
-                <a href={startup.assistant} target="_blank" rel="noopener noreferrer">
-                  See the prototype ↗
-                </a>
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section id="pricing" className="startup-section startup-container">
-          <div className="startup-section-heading">
+        <section className="sv-section sv-container">
+          <div className="sv-heading">
             <div>
-              <p className="startup-kicker">03 / PRICING</p>
-              <h2>
-                Clear pricing.
+              <p className="sv-kicker">Why work with me</p>
+              <h2 className="sv-h2">
+                Simple process.
                 <br />
-                <span className="startup-muted-heading">No surprises.</span>
+                <span>You stay in control.</span>
               </h2>
             </div>
-            <p>
-              Every project gets a written, fixed quote
-              <br className="startup-desktop-break" /> before any work begins.
-            </p>
           </div>
-          <div className="studio-pricing-grid">
+          <div className="sv-reasons">
+            {reasons.map(({ icon: Icon, title, text }) => (
+              <article key={title}>
+                <Icon size={24} strokeWidth={1.6} aria-hidden="true" />
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+          <ol className="sv-steps">
+            <li>
+              <span>01</span>
+              <strong>Free review</strong>
+              <p>I look at your current setup and send what&apos;s costing you customers.</p>
+            </li>
+            <li>
+              <span>02</span>
+              <strong>Fixed quote &amp; build</strong>
+              <p>You approve scope and price, then follow along on a private preview link.</p>
+            </li>
+            <li>
+              <span>03</span>
+              <strong>Launch &amp; support</strong>
+              <p>Tested on real phones, launched, and handed over with a walkthrough.</p>
+            </li>
+          </ol>
+        </section>
+
+        <section id="pricing" className="sv-section sv-container">
+          <div className="sv-heading sv-heading-center">
+            <div>
+              <p className="sv-kicker">Pricing</p>
+              <h2 className="sv-h2">
+                The right plan.
+                <br />
+                <span>No surprises.</span>
+              </h2>
+            </div>
+          </div>
+          <div className="sv-pricing">
             {packages.map((pkg) => (
-              <article
-                className={`studio-price-card${pkg.highlight ? " studio-price-card-highlight" : ""}`}
-                key={pkg.name}
-              >
-                <span className="startup-kicker">{pkg.name}</span>
-                <strong className="studio-price">{pkg.price}</strong>
-                <p>{pkg.text}</p>
-                <ul className="startup-feature-list">
+              <article className={`sv-price${pkg.highlight ? " sv-price-hot" : ""}`} key={pkg.name}>
+                {pkg.highlight && <span className="sv-badge">Most popular</span>}
+                <h3>{pkg.name}</h3>
+                <p className="sv-price-amount">
+                  <small>{pkg.prefix}</small>
+                  {pkg.price}
+                </p>
+                <p className="sv-price-text">{pkg.text}</p>
+                <ul>
                   {pkg.items.map((item) => (
                     <li key={item}>
                       <Check size={16} aria-hidden="true" /> {item}
                     </li>
                   ))}
                 </ul>
-                <a className="startup-text-link" href={startup.inquiry}>
-                  Ask for a quote <ArrowUpRight size={17} aria-hidden="true" />
-                </a>
+                <Pill href={startup.inquiry} dark={!pkg.highlight}>
+                  Get started
+                </Pill>
               </article>
             ))}
           </div>
         </section>
 
-        <section id="process" className="startup-section startup-container studio-process-section">
-          <div className="startup-section-heading">
-            <div>
-              <p className="startup-kicker">04 / HOW IT WORKS</p>
-              <h2>
-                Simple process.
-                <br />
-                <span className="startup-muted-heading">You stay in control.</span>
-              </h2>
-            </div>
-            <a className="startup-text-link" href={startup.audit}>
-              Start with a free review <ArrowUpRight size={17} aria-hidden="true" />
-            </a>
-          </div>
-          <div className="startup-process">
-            <article>
-              <span>01 — REVIEW</span>
-              <h3>Free website review.</h3>
-              <p>
-                I look at your current site, booking, and ordering setup and send a short list of
-                what&apos;s costing you customers. No obligation.
-              </p>
-            </article>
-            <article>
-              <span>02 — BUILD</span>
-              <h3>Fixed quote, then build.</h3>
-              <p>
-                You approve the scope and price first. Then you get a private preview link and
-                regular written updates as it comes together.
-              </p>
-            </article>
-            <article>
-              <span>03 — LAUNCH</span>
-              <h3>Launch and support.</h3>
-              <p>
-                I launch, test everything on real phones, and walk you through updating it yourself.
-                Ongoing support is available if you want it.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section id="about" className="startup-about">
-          <div className="startup-container startup-about-grid">
-            <div className="startup-founder-image">
-              <Image
-                src="/portraits/ali-hamza-original.jpg"
-                alt="Ali Hamza, web developer"
-                width={600}
-                height={720}
-                sizes="(max-width: 760px) 90vw, 360px"
-              />
-              <div>
-                <span className="startup-status-dot" /> ISLAMABAD · WORKING WITH US CLIENTS
-              </div>
-            </div>
-            <div className="startup-about-copy">
-              <p className="startup-kicker">05 / ABOUT</p>
-              <h2>
-                One developer.
-                <br />
-                Start to finish.
-              </h2>
-              <p>
-                I&apos;m Ali Hamza, a full-stack developer with a BS in Software Engineering. You
-                work directly with me, not an account manager, from the first review to launch.
-              </p>
-              <p>
-                I&apos;ve built booking sites, multi-branch restaurant menus, Shopify stores, a
-                headless e-commerce platform with admin and customer dashboards, and publishing
-                systems that run across a 330-site network. My background in cybersecurity means
-                your site and customer data are handled carefully.
-              </p>
-              <div className="startup-founder-signature">
-                <strong>Ali Hamza</strong>
-                <span>Full-Stack Web &amp; App Developer</span>
-              </div>
-              <a
-                className="startup-text-link"
-                href={startup.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Connect on LinkedIn <ArrowUpRight size={17} aria-hidden="true" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        <section id="contact" className="startup-contact">
-          <div className="startup-container">
-            <p className="startup-kicker">
-              <span className="startup-status-dot" /> AVAILABLE FOR NEW PROJECTS
-            </p>
-            <h2>
-              Your business.
+        <section id="faq" className="sv-section sv-container sv-faq-wrap">
+          <div>
+            <p className="sv-kicker">FAQ</p>
+            <h2 className="sv-h2">
+              Questions,
               <br />
-              <span>Working harder online.</span>
+              <span>answered.</span>
             </h2>
-            <div className="startup-contact-bottom">
-              <p>
-                Tell me about your business and what you need.
-                <br />
-                You&apos;ll get a reply within one business day.
-              </p>
-              <a className="startup-button startup-button-mint" href={startup.inquiry}>
-                Start a project <ArrowUpRight size={20} aria-hidden="true" />
+            <p className="sv-faq-note">
+              Something else? Email{" "}
+              <a href={`mailto:${startup.email}`}>{startup.email}</a>
+            </p>
+          </div>
+          <div className="sv-faq">
+            {faqs.map((f) => (
+              <details key={f.q}>
+                <summary>
+                  {f.q} <Plus size={20} aria-hidden="true" />
+                </summary>
+                <p>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
+        <section id="contact" className="sv-cta">
+          <div className="sv-hero-glow sv-cta-glow" aria-hidden="true" />
+          <div className="sv-container">
+            <p className="sv-kicker">Let&apos;s work together</p>
+            <h2 className="sv-display sv-cta-title">
+              Ready to get
+              <br />
+              <span>more customers?</span>
+            </h2>
+            <div className="sv-actions sv-cta-actions">
+              <Pill href={startup.inquiry}>Start a project</Pill>
+              <a className="sv-link" href={`mailto:${startup.email}`}>
+                {startup.email} <ArrowUpRight size={16} aria-hidden="true" />
               </a>
             </div>
-            <a className="startup-contact-email" href={`mailto:${startup.email}`}>
-              {startup.email} <ArrowUpRight size={16} aria-hidden="true" />
-            </a>
           </div>
         </section>
       </main>
-      <footer className="startup-footer startup-container">
-        <Link href="/" className="startup-brand">
-          <span className="startup-mark" aria-hidden="true">
-            a<span>h</span>
-          </span>
-          <span>
-            Ali Hamza<span className="startup-brand-ai">STUDIO</span>
-          </span>
-        </Link>
-        <p>
-          Websites, apps &amp; CRMs for small businesses.
-          <br />
-          <span>© {new Date().getFullYear()} Ali Hamza</span>
-        </p>
-        <div>
-          <a href={startup.github} target="_blank" rel="noopener noreferrer">
-            GitHub <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
-          <a href={startup.linkedin} target="_blank" rel="noopener noreferrer">
-            LinkedIn <ArrowUpRight size={14} aria-hidden="true" />
-          </a>
+
+      <footer className="sv-footer">
+        <div className="sv-ticker sv-ticker-footer" aria-hidden="true">
+          <div className="sv-ticker-track">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <span key={i}>
+                ALI HAMZA STUDIO <b>—</b> LET&apos;S TALK <b>—</b>
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="sv-container sv-footer-grid">
+          <div>
+            <Link href="/" className="sv-logo">
+              alihamza<span>.</span>
+            </Link>
+            <p>Websites, apps &amp; CRMs for small businesses.</p>
+          </div>
+          <div>
+            <h3>Explore</h3>
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+          </div>
+          <div>
+            <h3>Contact</h3>
+            <a href={`mailto:${startup.email}`}>{startup.email}</a>
+            <a href={startup.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
+            </a>
+            <a href={startup.github} target="_blank" rel="noopener noreferrer">
+              GitHub ↗
+            </a>
+          </div>
+        </div>
+        <div className="sv-container sv-footer-bottom">
+          <span>© {new Date().getFullYear()} Ali Hamza. All rights reserved.</span>
           <a href="#main">Back to top ↑</a>
         </div>
       </footer>
