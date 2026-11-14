@@ -11,6 +11,7 @@ const links = [
   { href: "/#work", label: "Work" },
   { href: "/#pricing", label: "Pricing" },
   { href: "/#faq", label: "FAQ" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function StudioHeader() {
@@ -35,17 +36,17 @@ export default function StudioHeader() {
         </Link>
         <nav className="sx-nav" aria-label="Main navigation">
           {links.map((link) => (
-            <a key={link.href} href={link.href}>
+            <Link key={link.href} href={link.href}>
               {link.label}
-            </a>
+            </Link>
           ))}
         </nav>
-        <a className="sx-pill sx-header-cta" href={startup.inquiry}>
+        <Link className="sx-pill sx-pill-light sx-header-cta" href={startup.inquiry}>
           Let&apos;s Talk
           <span className="sx-pill-icon" aria-hidden="true">
             <ArrowUpRight size={16} />
           </span>
-        </a>
+        </Link>
         <button
           className="sx-menu-toggle"
           type="button"
@@ -60,14 +61,14 @@ export default function StudioHeader() {
       {open && (
         <nav id="sx-mobile-nav" className="sx-mobile-nav" aria-label="Mobile navigation">
           {links.map((link) => (
-            <a key={link.href} href={link.href} onClick={() => setOpen(false)}>
+            <Link key={link.href} href={link.href} onClick={() => setOpen(false)}>
               {link.label}
               <ArrowUpRight size={20} aria-hidden="true" />
-            </a>
+            </Link>
           ))}
-          <a href={startup.inquiry} onClick={() => setOpen(false)}>
+          <Link href={startup.inquiry} onClick={() => setOpen(false)}>
             Start a project <ArrowUpRight size={20} aria-hidden="true" />
-          </a>
+          </Link>
         </nav>
       )}
     </header>

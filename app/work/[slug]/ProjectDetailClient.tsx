@@ -10,7 +10,6 @@ import CloudBackground from "@/components/CloudBackground";
 import CustomCursor from "@/components/CustomCursor";
 import AvailabilityBadge from "@/components/AvailabilityBadge";
 import Magnetic from "@/components/Magnetic";
-import ContactModal from "@/components/ContactModal";
 
 interface ProjectDetailClientProps {
   project: Project;
@@ -19,7 +18,6 @@ interface ProjectDetailClientProps {
 }
 
 export default function ProjectDetailClient({ project, prevProject, nextProject }: ProjectDetailClientProps) {
-  const [isContactOpen, setIsContactOpen] = React.useState(false);
 
   // Scroll to top on page load
   useEffect(() => {
@@ -215,22 +213,19 @@ export default function ProjectDetailClient({ project, prevProject, nextProject 
                 Get in touch with Ali Hamza to schedule an initial discovery call.
               </p>
               <Magnetic>
-                <button
-                  onClick={() => setIsContactOpen(true)}
+                <Link
+                  href="/contact#form"
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-black hover:bg-brand-charcoal text-brand-white text-xs font-semibold uppercase tracking-widest rounded-full transition-colors cursor-pointer focus-ring"
                 >
                   <span>Let&apos;s Collaborate</span>
                   <ArrowUpRight size={13} />
-                </button>
+                </Link>
               </Magnetic>
             </section>
 
           </main>
         </motion.div>
       </div>
-
-      {/* Inquiry contact form modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </>
   );
 }

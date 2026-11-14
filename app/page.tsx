@@ -5,31 +5,38 @@ import StudioHeader from "@/components/StudioHeader";
 import FaqList from "@/components/studio/FaqList";
 import { Reveal, SplitTitle, Counter } from "@/components/studio/Motion";
 import { startup } from "@/data/startup";
+import { contactHref } from "@/lib/contact";
+import StudioFooter from "@/components/studio/StudioFooter";
 import { projects } from "@/data/projects";
 
 const services = [
   {
     icon: "/studio/svc-hex.png",
+    slug: "website",
     title: "Business Websites",
     text: "Fast, mobile-first sites that show up on Google and turn visitors into calls, bookings, and orders.",
   },
   {
     icon: "/studio/svc-arch.png",
+    slug: "booking",
     title: "Booking & Ordering Apps",
     text: "Online appointments, restaurant ordering, meal-prep subscriptions, and automatic reminders.",
   },
   {
     icon: "/studio/svc-quarter.png",
+    slug: "crm",
     title: "CRMs & Dashboards",
     text: "One place for customers, quotes, orders, and follow-ups, with staff roles and customer portals.",
   },
   {
     icon: "/studio/svc-blob.png",
+    slug: "ecommerce",
     title: "E-commerce Stores",
     text: "Shopify and WooCommerce stores that are easy to buy from and safe to update.",
   },
   {
     icon: "/studio/svc-cone.png",
+    slug: "ai",
     title: "AI Assistants",
     text: "Chat assistants that answer service questions and guide visitors toward booking.",
   },
@@ -97,6 +104,7 @@ const steps = [
 const packages = [
   {
     name: "Website",
+    plan: "website",
     prefix: "From",
     price: "$500",
     text: "A professional, mobile-friendly site for a local business.",
@@ -109,6 +117,7 @@ const packages = [
   },
   {
     name: "Booking / Ordering App",
+    plan: "booking",
     prefix: "Fixed quote",
     price: "Custom",
     text: "Let customers book, order, or subscribe online without phone tag.",
@@ -122,6 +131,7 @@ const packages = [
   },
   {
     name: "CRM & Dashboard",
+    plan: "crm",
     prefix: "Fixed quote",
     price: "Custom",
     text: "Replace spreadsheets, sticky notes, and missed follow-ups.",
@@ -157,14 +167,7 @@ const faqs = [
   },
 ];
 
-const clients = [
-  "Perfection Auto Spa",
-  "Luna Pizza Kitchen",
-  "Medimil",
-  "Habibi's Carbon",
-  "Pinion Newswire",
-  "The Brainiacs School",
-];
+const clients = projects.map((p) => ({ name: p.title, slug: p.slug }));
 
 const ticker = ["Websites", "Booking Apps", "Online Ordering", "Custom CRMs", "E-commerce", "Dashboards"];
 
@@ -178,12 +181,12 @@ function Pill({
   variant?: "light" | "accent" | "ghost";
 }) {
   return (
-    <a className={`sx-pill sx-pill-${variant}`} href={href}>
+    <Link className={`sx-pill sx-pill-${variant}`} href={href}>
       {children}
       <span className="sx-pill-icon" aria-hidden="true">
         <ArrowUpRight size={16} />
       </span>
-    </a>
+    </Link>
   );
 }
 
@@ -194,7 +197,7 @@ function Tag({ children }: { children: React.ReactNode }) {
 function RotatingBadge() {
   const text = "FREE WEBSITE REVIEW ✦ FREE WEBSITE REVIEW ✦ ";
   return (
-    <a className="sx-badge" href={startup.audit} aria-label="Request a free website review">
+    <Link className="sx-badge" href={startup.audit} aria-label="Request a free website review">
       <svg viewBox="0 0 200 200" aria-hidden="true">
         <defs>
           <path id="sx-circle" d="M100,100 m-76,0 a76,76 0 1,1 152,0 a76,76 0 1,1 -152,0" />
@@ -208,7 +211,7 @@ function RotatingBadge() {
       <span className="sx-badge-core">
         <ArrowUpRight size={28} aria-hidden="true" />
       </span>
-    </a>
+    </Link>
   );
 }
 
@@ -298,7 +301,9 @@ export default function Home() {
               </p>
               <ul>
                 {clients.map((c) => (
-                  <li key={c}>{c}</li>
+                  <li key={c.name}>
+                    <Link href={`/work/${c.slug}`}>{c.name}</Link>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -436,9 +441,9 @@ export default function Home() {
                   </span>
                   <h3>{s.title}</h3>
                   <p>{s.text}</p>
-                  <a className="sx-service-link" href={startup.inquiry}>
+                  <Link className="sx-service-link" href={contactHref({ service: s.slug })}>
                     Ask about this <ArrowRight size={15} aria-hidden="true" />
-                  </a>
+                  </Link>
                 </Reveal>
               ))}
               <Reveal delay={0.2} className="sx-services-cta">
@@ -579,9 +584,9 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                  <a className="sx-price-btn" href={startup.inquiry}>
+                  <Link className="sx-price-btn" href={contactHref({ plan: pkg.plan })}>
                     Get started
-                  </a>
+                  </Link>
                 </Reveal>
               ))}
             </div>
@@ -621,73 +626,7 @@ export default function Home() {
         </section>
       </main>
 
-      {/* FOOTER / CTA */}
-      <footer id="contact" className="sx-footer">
-        <div className="sx-footer-bg" aria-hidden="true">
-          <Image src="/studio/grid-lines.png" alt="" fill sizes="100vw" />
-        </div>
-        <div className="sx-container sx-footer-top">
-          <div className="sx-footer-left">
-            <Link href="/" className="sx-logo">
-              <span className="sx-logo-mark" aria-hidden="true">
-                ah
-              </span>
-              Ali Hamza
-            </Link>
-            <a className="sx-footer-email" href={`mailto:${startup.email}`}>
-              {startup.email}
-            </a>
-            <p>Websites, apps &amp; CRMs for small businesses in the US and worldwide.</p>
-          </div>
-          <Image
-            className="sx-footer-knot"
-            src="/studio/glass-knot.png"
-            alt=""
-            width={202}
-            height={217}
-            aria-hidden="true"
-          />
-          <a className="sx-cta-big" href={startup.inquiry}>
-            <span>
-              Let&apos;s Talk
-              <span className="sx-cta-arrow" aria-hidden="true">
-                <ArrowRight size={30} />
-              </span>
-            </span>
-            <span className="sx-accent-text">Work Together</span>
-          </a>
-        </div>
-        <div className="sx-container sx-footer-links">
-          <div>
-            <h3>Explore</h3>
-            <a href="#about">About</a>
-            <a href="#services">Services</a>
-            <a href="#work">Work</a>
-            <a href="#pricing">Pricing</a>
-          </div>
-          <div>
-            <h3>Services</h3>
-            <span>Business Websites</span>
-            <span>Booking &amp; Ordering Apps</span>
-            <span>CRMs &amp; Dashboards</span>
-            <span>E-commerce Stores</span>
-          </div>
-          <div>
-            <h3>Connect</h3>
-            <a href={startup.linkedin} target="_blank" rel="noopener noreferrer">
-              LinkedIn ↗
-            </a>
-            <a href={startup.github} target="_blank" rel="noopener noreferrer">
-              GitHub ↗
-            </a>
-            <a href={startup.audit}>Free website review</a>
-          </div>
-        </div>
-        <div className="sx-container sx-footer-bottom">
-          <span>© {new Date().getFullYear()} Ali Hamza. All rights reserved.</span>
-          <a href="#main">Back to top ↑</a>
-        </div>
-      </footer>
+      <StudioFooter />
     </div>
   );
 }

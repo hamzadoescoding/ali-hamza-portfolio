@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
@@ -10,10 +10,8 @@ import CustomCursor from "@/components/CustomCursor";
 import AvailabilityBadge from "@/components/AvailabilityBadge";
 import Magnetic from "@/components/Magnetic";
 import ProjectCard from "@/components/ProjectCard";
-import ContactModal from "@/components/ContactModal";
 
 export default function AllWorkPageClient() {
-  const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
     <>
@@ -115,20 +113,17 @@ export default function AllWorkPageClient() {
                 Tell me about your business and get a fixed quote for your website, app, or CRM.
               </p>
               <Magnetic>
-                <button
-                  onClick={() => setIsContactOpen(true)}
+                <Link
+                  href="/contact#form"
                   className="inline-flex items-center gap-2 px-6 py-3.5 bg-brand-black hover:bg-brand-charcoal text-brand-white text-xs font-semibold uppercase tracking-widest rounded-full transition-colors cursor-pointer focus-ring"
                 >
                   <span>Let&apos;s Collaborate</span>
-                </button>
+                </Link>
               </Magnetic>
             </section>
           </main>
         </motion.div>
       </div>
-
-      {/* Inquiry contact form modal */}
-      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
     </>
   );
 }
