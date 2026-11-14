@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Manrope, Unbounded } from "next/font/google";
+import { Geist, Geist_Mono, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import "./startup.css";
 import "./studio.css";
@@ -9,7 +10,14 @@ import { startup } from "@/data/startup";
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
 const manrope = Manrope({ variable: "--font-manrope", subsets: ["latin"] });
-const unbounded = Unbounded({ variable: "--font-unbounded", subsets: ["latin"], weight: ["500", "600", "700"] });
+const clash = localFont({
+  variable: "--font-clash",
+  display: "swap",
+  src: [
+    { path: "./fonts/ClashDisplay-Medium.otf", weight: "500", style: "normal" },
+    { path: "./fonts/ClashDisplay-Semibold.otf", weight: "600", style: "normal" },
+  ],
+});
 const description =
   "Ali Hamza Studio builds websites, booking and ordering apps, and custom CRMs for small businesses in the US and worldwide. Fixed quotes, projects from $500.";
 
@@ -86,7 +94,7 @@ const siteJsonLd = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${unbounded.variable} h-full antialiased`}>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${manrope.variable} ${clash.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-brand-charcoal text-brand-black selection:bg-brand-black selection:text-brand-bg">
         <script
           type="application/ld+json"
